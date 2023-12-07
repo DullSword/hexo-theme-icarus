@@ -17,6 +17,19 @@ class Profile extends Component {
         </div>;
     }
 
+    renderHitokoto(sentenceType) {
+        if (!sentenceType.length) {
+            return null;
+        }
+        const url = `https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&${sentenceType}`;
+        return (
+            <>
+                <a href="https://hitokoto.cn/"><p id="hitokoto" style="text-align: justify;">:D 获取中...</p></a>
+                <script src={url} defer></script>
+            </>
+        )
+    }
+
     render() {
         const {
             avatar,
@@ -27,7 +40,8 @@ class Profile extends Component {
             counter,
             followLink,
             followTitle,
-            socialLinks
+            socialLinks,
+            hitokotoSentenceType
         } = this.props;
         return <div class="card widget" data-type="profile">
             <div class="card-content">
@@ -76,6 +90,7 @@ class Profile extends Component {
                     <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
+                {hitokotoSentenceType ? this.renderHitokoto(hitokotoSentenceType) : null}
             </div>
         </div>;
     }
@@ -91,7 +106,8 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         author_title,
         location,
         follow_link,
-        social_links
+        social_links,
+        hitokoto
     } = widget;
     const { url_for, _p, __ } = helper;
 
@@ -124,6 +140,10 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         };
     }) : null;
 
+    const hitokotoSentenceType = hitokoto ? hitokoto?.map(sentenceType => {
+        return `c=${sentenceType}`;
+    }).join('&') : null;
+
     return {
         avatar: getAvatar(),
         avatarRounded: avatar_rounded,
@@ -149,7 +169,8 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         },
         followLink: follow_link ? url_for(follow_link) : undefined,
         followTitle: __('widget.follow'),
-        socialLinks
+        socialLinks,
+        hitokotoSentenceType
     };
 });
 

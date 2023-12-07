@@ -29,6 +29,9 @@
                 "$ref": "/widget/recent_posts.json"
             },
             {
+                "$ref": "/widget/recommended_posts.json"
+            },
+            {
                 "$ref": "/widget/archives.json"
             },
             {

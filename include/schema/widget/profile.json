@@ -84,6 +84,14 @@
                     }
                 }
             ]
+        },
+        "hitokoto": {
+            "type": "array",
+            "description": "hitokoto sentence type",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true
         }
     },
     "required": [

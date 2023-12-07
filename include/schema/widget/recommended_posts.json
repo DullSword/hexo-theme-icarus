@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "/widget/recommended_posts.json",
+    "description": "Recommended posts widget configurations",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "const": "recommended_posts"
+        }
+    },
+    "required": [
+        "type"
+    ]
+}

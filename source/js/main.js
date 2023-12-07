@@ -4,9 +4,9 @@
         // wrap images with link and add caption if possible
         if ($(this).parent('a').length === 0) {
             $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');
-            if (this.alt) {
-                $(this).after('<p class="has-text-centered is-size-6 caption">' + this.alt + '</p>');
-            }
+            // if (this.alt) {
+            //     $(this).after('<p class="has-text-centered is-size-6 caption">' + this.alt + '</p>');
+            // }
         }
     });
 
@@ -93,7 +93,8 @@
                 $(this).attr('id', id);
                 $(this).find('figcaption div.level-right').append(button);
             });
-            new ClipboardJS('.highlight .copy'); // eslint-disable-line no-new
+            // new ClipboardJS('.highlight .copy'); // eslint-disable-line no-new
+            new ClipboardJS('.copy');
         }
 
         if (fold) {
