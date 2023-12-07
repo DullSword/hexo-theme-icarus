@@ -19,6 +19,7 @@ common:
 widget:
     follow: '追蹤'
     recents: '最新文章'
+    recommended: '推薦文章'
     links: '連結'
     catalogue: '文章目錄'
     subscribe_email: '訂閱 Email'
