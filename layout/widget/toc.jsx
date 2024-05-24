@@ -104,7 +104,7 @@ class Toc extends Component {
       .sort((a, b) => a - b);
 
     if (keys.length > 0) {
-      result = <ul class="menu-list">{keys.map((i) => this.renderToc(toc[i], showIndex))}</ul>;
+      result = <ul class="menu-list menu-scroll">{keys.map((i) => this.renderToc(toc[i], showIndex))}</ul>;
     }
     if ('id' in toc && 'index' in toc && 'text' in toc) {
       result = (
