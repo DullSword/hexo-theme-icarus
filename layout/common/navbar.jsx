@@ -57,7 +57,7 @@ class Navbar extends Component {
                         {Object.keys(links).length ? <Fragment>
                             {Object.keys(links).map(name => {
                                 const link = links[name];
-                                const target = name == 'Game' ? '_self' : '_blank';
+                                const target = name == 'Demo' ? '_self' : '_blank';
                                 return <a class="navbar-item" target={target} rel="noopener" title={name} href={link.url}>
                                     {link.icon ? <i class={link.icon}></i> : name}
                                 </a>;
